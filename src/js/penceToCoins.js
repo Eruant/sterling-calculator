@@ -16,7 +16,10 @@ module.exports = function (pence) {
   coins = [];
   remaining = pence;
 
+  // loop through each type of coin
   for (var i = 0, il = coinsAvailable.length; i < il; i++) {
+
+    // keep adding this type of coin if we have enough pence left
     while (pence >= coinsAvailable[i] && pence !== 0) {
       coins.push(coinsAvailable[i]);
       pence -= coinsAvailable[i];
