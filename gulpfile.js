@@ -1,9 +1,11 @@
+/*globals console*/
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     browserify = require('browserify'),
     imagemin = require('gulp-imagemin'),
     browserSync = require('browser-sync'),
-    source = require('vinyl-source-stream')/*,
+    source = require('vinyl-source-stream'),
+    karma = require('gulp-karma')/*,
     streamify = require('gulp-streamify'),
     uglify = require('gulp-uglify')*/;
 
@@ -22,11 +24,23 @@ gulp.task('script-hints', function () {
     });
 });
 
-gulp.task('script-compile', ['script-hints'], function () {
-  var bundleStream = browserify('./src/js/base.js').bundle();
+gulp.task('script-test', function () {
+  return gulp.src('src/js/**/*_test.js')
+    .pipe(karma({
+      baseDir: './',
+      configFile: 'karma.config.js',
+      action: 'run'
+    }))
+    .on('error', function (err) {
+      throw err;
+    });
+});
+
+gulp.task('script-compile', ['script-hints', 'script-test'], function () {
+  var bundleStream = browserify('./src/js/root.js').bundle();
 
   bundleStream
-    .pipe(source('bundle.js'))
+    .pipe(source('coinChallenge.js'))
     /*.pipe(streamify(uglify()))*/
     .pipe(gulp.dest('bin/js'));
 });
