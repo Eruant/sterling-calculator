@@ -27,5 +27,9 @@
   },
   "browserify-shim": {
     "phaser": "global:Phaser"
+  },
+  "dependencies": {
+    "browserify-fs": "^1.0.0",
+    "markdown": "^0.5.0"
   }
 }
