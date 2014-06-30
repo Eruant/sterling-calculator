@@ -1,14 +1,16 @@
 <!doctype html>
 <head>
   <meta charsef="utf-8">
+  <meta name=viewport content="width=device-width, initial-scale=1">
   <title>Coin Challenge</title>
-  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
   <style>
 
     body {
       width: 600px;
       margin: 50px auto;
       text-align: center;
+      font-size: 20px;
+      line-height: 24px;
       font-family: 'Shadows Into Light', cursive;
     }
 
@@ -82,6 +84,14 @@
       height: 44px;
       background-image: url('assets/coin_1.png');
     }
+
+    input {
+      padding: 5px;
+      font-size: 20px;
+      line-height: 24px;
+      font-family: 'Shadows Into Light', cursive;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -90,4 +100,15 @@
   <input id="moneyInput">
   <div id="result"></div>
   <script src="js/coinChallenge.js"></script>
+  <script>
+    var cb = function() {
+      var l = document.createElement('link'); l.rel = 'stylesheet';
+      l.href = 'http://fonts.googleapis.com/css?family=Shadows+Into+Light';
+      var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+        webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(cb);
+    else window.addEventListener('load', cb);
+  </script>
 </body>
