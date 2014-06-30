@@ -51,19 +51,30 @@ module.exports = {
 
     var tempContainer, i, length, temp;
 
+    // create a container in memory
     tempContainer = window.document.createElement('div');
     tempContainer.className = 'coins';
     length = coinArray.length;
 
-    for (i = 0; i < length; i++) {
-      temp = window.document.createElement('div');
-      temp.className = 'coin coin_' + coinArray[i];
+    if (length > 0)  {
+      // we have found coins so add each one to the container
+      for (i = 0; i < length; i++) {
+        temp = window.document.createElement('div');
+        temp.className = 'coin coin_' + coinArray[i];
+        tempContainer.appendChild(temp);
+      }
+    } else {
+      // no coins found, display an error
+      temp = window.document.createElement('p');
+      temp.innerHTML = 'Sorry, but I didn\'t understand that value.';
       tempContainer.appendChild(temp);
     }
 
+    // make sure the result element is empty
     while (this.result.firstChild) {
       this.result.removeChild(this.result.firstChild);
     }
+    // add our new result
     this.result.appendChild(tempContainer);
   }
 
