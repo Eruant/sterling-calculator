@@ -88,9 +88,15 @@ module.exports = {
     tempContainer.className = 'coins';
     length = coinArray.length;
 
-    for (i = 0; i < length; i++) {
-      temp = window.document.createElement('div');
-      temp.className = 'coin coin_' + coinArray[i];
+    if (length > 0)  {
+      for (i = 0; i < length; i++) {
+        temp = window.document.createElement('div');
+        temp.className = 'coin coin_' + coinArray[i];
+        tempContainer.appendChild(temp);
+      }
+    } else {
+      temp = window.document.createElement('p');
+      temp.innerHTML = 'Sorry, but I didn\'t understand that value.';
       tempContainer.appendChild(temp);
     }
 
