@@ -2,28 +2,91 @@
 <head>
   <meta charsef="utf-8">
   <title>Coin Challenge</title>
+  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
   <style>
+
+    body {
+      width: 600px;
+      margin: 50px auto;
+      text-align: center;
+      font-family: 'Shadows Into Light', cursive;
+    }
+
     .coins {
+      margin-top: 30px;
       clear: left;
-      float: left;
     }
 
     .coin {
       width: 50px;
       height: 50px;
       margin: 5px;
-      background-color: #ccc;
-      float: left;
+      display: inline-block;
+      text-align: justify;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      -webkit-animation: animateAppear 0.5s 1;
+    }
+
+    @-webkit-keyframes animateAppear {
+      0% { opacity: 0.001; -webkit-transform: translate(0, -20px); }
+      100% { opacity: 0.999; -webkit-transform: translate(0, 0); }
     }
 
     .coin_200 {
-      background-color: gold;
+      width: 59px;
+      height: 60px;
+      background-image: url('assets/coin_200.png');
+    }
+
+    .coin_100 {
+      width: 54px;
+      height: 55px;
+      background-image: url('assets/coin_100.png');
+    }
+
+    .coin_50 {
+      width: 65px;
+      height: 70px;
+      background-image: url('assets/coin_50.png');
+    }
+
+    .coin_20 {
+      width: 60px;
+      height: 61px;
+      background-image: url('assets/coin_20.png');
+    }
+
+    .coin_10 {
+      width: 44px;
+      height: 56px;
+      background-image: url('assets/coin_10.png');
+    }
+
+    .coin_5 {
+      width: 31px;
+      height: 42px;
+      background-image: url('assets/coin_5.png');
+    }
+
+    .coin_2 {
+      width: 42px;
+      height: 50px;
+      background-image: url('assets/coin_2.png');
+    }
+
+    .coin_1 {
+      width: 34px;
+      height: 44px;
+      background-image: url('assets/coin_1.png');
     }
   </style>
 </head>
 <body>
   <h1>Sterling Calculator</h1>
-  <p>Enter an amount</p>
+  <p>Enter an amount to see how many coins you need</p>
   <input id="moneyInput">
   <div id="result"></div>
   <script src="js/coinChallenge.js"></script>
